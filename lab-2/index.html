@@ -2,25 +2,24 @@
 <html>
 <head>
 	<title>The Members - ITKMITL Multimedia Programming 2563</title>
-
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<link rel="stylesheet" type="text/css" href="lab.css">
 </head>
 <body>
 	<div id="app">
-		<h1>covid-19 ในแต่ล่ะทวีป</h1>
+		<h1>Covid-19 ในแต่ล่ะทวีป</h1>
 		<h2 v-for="u in continent" :data-continent="u.continent" @click="viewBio(u)">{{u.continent}}</h2>
 <br>
-		<h1> ในทวีป {{person.continent}}</h1>
-		<h2>มีประชากรทั้งหมด {{person.population}} คน</h2>
-		<h3>ติดเชื้อทั้งหมด: {{person.cases}} คน</h3>
-		<h3>ติดเชื้อในวันนี้: {{person.todayCases}} คน</h3>
-		<h3>เสียชีวิตทั้งหมด: {{person.deaths}} คน</h3>
-		<h3>เสียชีวิตในวันนี้: {{person.todayDeaths}} คน</h3>
-		<h3>รักษาหายแล้ว: {{person.recovered}} คน</h3>
-		<h3>รักษาหายแล้วในวันนี้: {{person.todayRecovered}} คน</h3>
-		<h2>ทวีป {{person.continent}} มีประเทศ</h2>
-		<h3>{{person.countries}}</h3>
+		<h1> ในทวีป {{person.continent}} มีประชากรทั้งหมด {{person.population}} คน</h1>
+		<h4>ติดเชื้อทั้งหมด: {{person.cases}} คน</h4>
+		<h4>ติดเชื้อในวันนี้: {{person.todayCases}} คน</h4>
+		<h4>เสียชีวิตทั้งหมด: {{person.deaths}} คน</h4>
+		<h4>เสียชีวิตในวันนี้: {{person.todayDeaths}} คน</h4>
+		<h4>รักษาหายแล้ว: {{person.recovered}} คน</h4>
+		<h4>รักษาหายแล้วในวันนี้: {{person.todayRecovered}} คน</h4>
+		<h3>ทวีป {{person.continent}} มีประเทศ</h3>
+		<h4>{{person.countries}}</h4>
 	</div>
 
 	<script>
