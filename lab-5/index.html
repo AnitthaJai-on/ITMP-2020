@@ -110,14 +110,21 @@
 							this.fruits.push({ id: fruitCount, type: 'yellow', pst: 0, run: true, step: 1 })
 						}
 						fruitCount++;
-					}
+					}//speed up
+					if (app.turn >= 40) { app.speed = 300 }
+					else if (app.turn >= 30) { app.speed = 500 }
+					else if (app.turn >= 20) { app.speed = 700 }
+					else if (app.turn >= 10) { app.speed = 900 }
 				}
 			}
 		})
 
-		let playing = setInterval(function () {
-			app.turn++
-		}, speed)
+		setTimeout(function timespeed() {
+			if (app.play) {
+				app.turn++;
+				setTimeout(timespeed, app.speed);
+			}
+		}, app.speed)
 	</script>
 </body>
 
