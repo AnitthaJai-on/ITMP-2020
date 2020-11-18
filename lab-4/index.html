@@ -36,7 +36,6 @@
 			let shift = (stop - start) + 1
 			return Math.floor(Math.random() * 100 % shift) + start
 		}
-		//Vue.component("a-dot");
 		let app = new Vue({
 			el: '#canvas',
 			data: {
@@ -51,7 +50,7 @@
 				check: function (e) {
 					if (this.time <= 0) {
 						this.time = 0;
-						alert('Time\'s up!');
+						this.l = 20
 					}
 					else if (e == this.pick) {
 						this.correct();
@@ -61,11 +60,8 @@
 					else if (e != this.pick) {
 						this.time -= 5;
 					}
-					else {
-						this.pick = rand(1, this.row * this.row);
-					}
 				},
-				correct: function () {//เข้าด่านต่อไป
+				correct: function () {
 					this.row += 1;
 					this.pick = rand(1, this.row * this.row);
 					this.score += 1;
