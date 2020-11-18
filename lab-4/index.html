@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Color Game - Multimedia Programming 2563 ITKMITL</title>
 	<link rel="stylesheet" type="text/css" href="../src/reset.css">
 	<link rel="stylesheet" type="text/css" href="lab.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
 	<div id="canvas" style="--picklight:80%;">
 		<section id="canvas_header">
@@ -15,10 +17,8 @@
 		</section>
 		<section id="canvas_main">
 			<main>
-				<a-dot v-for="i in row*row"
-				:style="{'--row':row, '--h':h, '--l':l+'%'}"
-				:data-pick="i == pick"
-				@click="check(i)">
+				<a-dot v-for="i in row*row" :style="{'--row':row, '--h':h, '--l':l+'%'}" :data-pick="i == pick"
+					@click="check(i)">
 				</a-dot>
 			</main>
 		</section>
@@ -49,18 +49,17 @@
 			},
 			methods: {
 				check: function (e) {
-					console.log(e);
-					if (e == this.pick) {
+					if (this.time <= 0) {
+						this.time = 0;
+						alert('Time\'s up!');
+					}
+					else if (e == this.pick) {
 						this.correct();
-						this.h = rand(1,360);
+						this.h = rand(1, 360);
 						this.time += 5;
 					}
 					else if (e != this.pick) {
 						this.time -= 5;
-						if (this.time <= 0) {
-							alert('Time\'s up!');
-							this.time = 0;
-						}
 					}
 					else {
 						this.pick = rand(1, this.row * this.row);
@@ -85,4 +84,5 @@
 		}, 1000);
 	</script>
 </body>
+
 </html>
